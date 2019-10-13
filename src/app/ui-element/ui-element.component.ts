@@ -12,7 +12,7 @@ export class UiElementComponent implements OnInit, AfterViewInit {
 
   @ViewChild(NumberComponent, null)
   private numberComponent: NumberComponent;
-  
+
   @ViewChild(StopwatchComponent, null)
   private stopwatchComponent: StopwatchComponent;
 
@@ -22,12 +22,16 @@ export class UiElementComponent implements OnInit, AfterViewInit {
   @ViewChild('title', null)
   private elTitle: ElementRef;
 
-  constructor() { }
+  constructor() { 
+    console.log('constructor');
+  }
 
   ngOnInit() {
+     console.log('ngOnInit');
   }
 
   ngAfterViewInit() {
+    console.log('ngAfterViewInit');
     this.elTitle.nativeElement.style.backgroundColor = 'cyan';
     this.elTitle.nativeElement.style.color = 'red';
   }
@@ -44,6 +48,7 @@ export class UiElementComponent implements OnInit, AfterViewInit {
     this.stopwatchComponent.stop();
   }
   changeColor(color: string) {
+    console.log(color);
     this.cpColorDirective.change(color);
   }
 
